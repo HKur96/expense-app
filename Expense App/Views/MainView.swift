@@ -9,17 +9,29 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView {
+            ExpenseView()
+                .tabItem {
+                    Image(systemName: "dollarsign")
+                    Text("Expenses")
+                }
+            
+            AddExpenseView()
+                .tabItem {
+                    Image(systemName: "plus")
+                    Text("Add Expense")
+                }
+            
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
         }
-        .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
     }
